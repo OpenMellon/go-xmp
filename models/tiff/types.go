@@ -15,7 +15,7 @@
 package tiff
 
 import (
-	"github.com/OpenMellon/openpdf/go-xmp/xmp"
+	"github.com/OpenMellon/go-xmp/xmp"
 )
 
 type YCbCrSubSampling xmp.IntList

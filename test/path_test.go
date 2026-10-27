@@ -17,10 +17,10 @@ package main
 import (
 	"testing"
 
-	_ "github.com/OpenMellon/openpdf/go-xmp/models"
-	"github.com/OpenMellon/openpdf/go-xmp/models/dc"
-	"github.com/OpenMellon/openpdf/go-xmp/models/xmp_mm"
-	"github.com/OpenMellon/openpdf/go-xmp/xmp"
+	_ "github.com/OpenMellon/go-xmp/models"
+	"github.com/OpenMellon/go-xmp/models/dc"
+	"github.com/OpenMellon/go-xmp/models/xmp_mm"
+	"github.com/OpenMellon/go-xmp/xmp"
 )
 
 func TestIncorrectPaths(T *testing.T) {

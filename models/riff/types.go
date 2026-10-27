@@ -16,7 +16,7 @@ package riff
 
 import (
 	"strings"
-	"github.com/OpenMellon/openpdf/go-xmp/xmp"
+	"github.com/OpenMellon/go-xmp/xmp"
 )
 
 type StringArray xmp.StringArray

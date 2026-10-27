@@ -18,8 +18,8 @@ import (
 	"os"
 	"testing"
 
-	_ "github.com/OpenMellon/openpdf/go-xmp/models"
-	"github.com/OpenMellon/openpdf/go-xmp/xmp"
+	_ "github.com/OpenMellon/go-xmp/models"
+	"github.com/OpenMellon/go-xmp/xmp"
 )
 
 var SyncMergeTestcases = map[xmp.Path]string{

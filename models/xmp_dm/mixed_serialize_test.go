@@ -4,7 +4,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/OpenMellon/openpdf/go-xmp/xmp"
+	"github.com/OpenMellon/go-xmp/xmp"
 )
 
 // Track mixes ,attr fields (trackName, frameRate, trackType) with an element field

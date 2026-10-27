@@ -19,8 +19,8 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/OpenMellon/openpdf/go-xmp/models/tiff"
-	"github.com/OpenMellon/openpdf/go-xmp/xmp"
+	"github.com/OpenMellon/go-xmp/models/tiff"
+	"github.com/OpenMellon/go-xmp/xmp"
 )
 
 // QuickTime Metadata Keys written by the "mdta" handler using Reverse DNS names.

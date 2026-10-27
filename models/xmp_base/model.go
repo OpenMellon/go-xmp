@@ -18,7 +18,7 @@ package xmpbase
 import (
 	"fmt"
 	"strings"
-	"github.com/OpenMellon/openpdf/go-xmp/xmp"
+	"github.com/OpenMellon/go-xmp/xmp"
 )
 
 var (

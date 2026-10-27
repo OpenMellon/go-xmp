@@ -16,8 +16,8 @@
 package xmpmm
 
 import (
-	"github.com/OpenMellon/openpdf/go-xmp/models/xmp_dm"
-	"github.com/OpenMellon/openpdf/go-xmp/xmp"
+	"github.com/OpenMellon/go-xmp/models/xmp_dm"
+	"github.com/OpenMellon/go-xmp/xmp"
 )
 
 // Part 1: 8.2.2.9 ResourceRef + Part 2: 1.2.4.1 ResourceRef

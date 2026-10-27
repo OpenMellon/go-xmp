@@ -17,7 +17,7 @@ package xmpbase
 
 import (
 	"bytes"
-	"github.com/OpenMellon/openpdf/go-xmp/xmp"
+	"github.com/OpenMellon/go-xmp/xmp"
 )
 
 type Rating int

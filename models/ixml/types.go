@@ -19,8 +19,8 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/OpenMellon/openpdf/go-xmp/models/xmp_dm"
-	"github.com/OpenMellon/openpdf/go-xmp/xmp"
+	"github.com/OpenMellon/go-xmp/models/xmp_dm"
+	"github.com/OpenMellon/go-xmp/xmp"
 )
 
 type Bool bool

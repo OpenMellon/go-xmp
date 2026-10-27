@@ -17,8 +17,8 @@ package mp4
 
 import (
 	"fmt"
-	"github.com/OpenMellon/openpdf/go-xmp/models/qt"
-	"github.com/OpenMellon/openpdf/go-xmp/xmp"
+	"github.com/OpenMellon/go-xmp/models/qt"
+	"github.com/OpenMellon/go-xmp/xmp"
 )
 
 var (

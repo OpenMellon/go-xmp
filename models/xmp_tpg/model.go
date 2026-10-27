@@ -18,7 +18,7 @@ package xmptpg
 
 import (
 	"fmt"
-	"github.com/OpenMellon/openpdf/go-xmp/xmp"
+	"github.com/OpenMellon/go-xmp/xmp"
 )
 
 var (

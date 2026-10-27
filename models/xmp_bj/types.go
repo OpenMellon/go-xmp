@@ -16,7 +16,7 @@
 package xmpbj
 
 import (
-	"github.com/OpenMellon/openpdf/go-xmp/xmp"
+	"github.com/OpenMellon/go-xmp/xmp"
 )
 
 // Part 2: 1.2.5.1 Job

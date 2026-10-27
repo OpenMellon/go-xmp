@@ -15,7 +15,7 @@
 package itunes
 
 import (
-	"github.com/OpenMellon/openpdf/go-xmp/xmp"
+	"github.com/OpenMellon/go-xmp/xmp"
 	// "howett.net/plist"
 )
 

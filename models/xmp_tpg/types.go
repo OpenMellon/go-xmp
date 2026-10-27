@@ -17,7 +17,7 @@
 package xmptpg
 
 import (
-	"github.com/OpenMellon/openpdf/go-xmp/xmp"
+	"github.com/OpenMellon/go-xmp/xmp"
 )
 
 // Part 2: 1.2.2.2 Dimensions

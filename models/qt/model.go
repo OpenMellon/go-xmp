@@ -55,8 +55,8 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/OpenMellon/openpdf/go-xmp/models/ixml"
-	"github.com/OpenMellon/openpdf/go-xmp/xmp"
+	"github.com/OpenMellon/go-xmp/models/ixml"
+	"github.com/OpenMellon/go-xmp/xmp"
 )
 
 var (

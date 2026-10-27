@@ -34,11 +34,11 @@ import (
 	"strings"
 	"time"
 
-	"github.com/OpenMellon/openpdf/go-xmp/models/dc"
-	"github.com/OpenMellon/openpdf/go-xmp/models/xmp_base"
-	"github.com/OpenMellon/openpdf/go-xmp/models/xmp_dm"
-	"github.com/OpenMellon/openpdf/go-xmp/models/xmp_rights"
-	"github.com/OpenMellon/openpdf/go-xmp/xmp"
+	"github.com/OpenMellon/go-xmp/models/dc"
+	"github.com/OpenMellon/go-xmp/models/xmp_base"
+	"github.com/OpenMellon/go-xmp/models/xmp_dm"
+	"github.com/OpenMellon/go-xmp/models/xmp_rights"
+	"github.com/OpenMellon/go-xmp/xmp"
 )
 
 var (

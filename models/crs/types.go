@@ -18,7 +18,7 @@ import (
 	"bytes"
 	"fmt"
 	"strconv"
-	"github.com/OpenMellon/openpdf/go-xmp/xmp"
+	"github.com/OpenMellon/go-xmp/xmp"
 )
 
 // Point "x, y"

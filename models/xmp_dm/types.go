@@ -24,7 +24,7 @@ import (
 	"strconv"
 	"strings"
 	"time"
-	"github.com/OpenMellon/openpdf/go-xmp/xmp"
+	"github.com/OpenMellon/go-xmp/xmp"
 )
 
 // 1.2.3.1 Part

@@ -26,8 +26,8 @@ import (
 	"github.com/golang/snappy"
 	"github.com/montanaflynn/stats"
 
-	_ "github.com/OpenMellon/openpdf/go-xmp/models"
-	"github.com/OpenMellon/openpdf/go-xmp/xmp"
+	_ "github.com/OpenMellon/go-xmp/models"
+	"github.com/OpenMellon/go-xmp/xmp"
 )
 
 // Compression tests

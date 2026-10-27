@@ -1,7 +1,7 @@
 go-xmp
 ===========
 
-[![Go Reference](https://pkg.go.dev/badge/github.com/OpenMellon/openpdf/go-xmp.svg)](https://pkg.go.dev/github.com/OpenMellon/openpdf/go-xmp)
+[![Go Reference](https://pkg.go.dev/badge/github.com/OpenMellon/go-xmp.svg)](https://pkg.go.dev/github.com/OpenMellon/go-xmp)
 
 > **Note:** This is a fork of [trimmer-io/go-xmp](https://github.com/trimmer-io/go-xmp).
 
@@ -52,14 +52,14 @@ Features
 Documentation
 -------------
 
-- [API Reference](https://pkg.go.dev/github.com/OpenMellon/openpdf/go-xmp/xmp)
+- [API Reference](https://pkg.go.dev/github.com/OpenMellon/go-xmp/xmp)
 
 Installation
 ------------
 
 Install go-xmp using the "go get" command:
 
-    go get github.com/OpenMellon/openpdf/go-xmp
+    go get github.com/OpenMellon/go-xmp
 
 The Go distribution is go-xmp's only dependency.
 
@@ -77,7 +77,7 @@ go test ./test/ -bench=. -benchmem
 
 goos: darwin
 goarch: amd64
-pkg: github.com/OpenMellon/openpdf/go-xmp/test
+pkg: github.com/OpenMellon/go-xmp/test
 BenchmarkUnmarshalXMP_5kB-8       5000      321524 ns/op     58071 B/op     1056 allocs/op
 BenchmarkMarshalXMP_5kB-8         5000      270981 ns/op     61384 B/op      758 allocs/op
 BenchmarkMarshalJSON_5kB-8        5000      338354 ns/op     91855 B/op     1023 allocs/op
@@ -119,7 +119,7 @@ Size matters when storing XMP in a database or sending documents over a network.
 Contributing
 ------------
 
-See [CONTRIBUTING.md](https://github.com/OpenMellon/openpdf/go-xmp/blob/master/.github/CONTRIBUTING.md).
+See [CONTRIBUTING.md](https://github.com/OpenMellon/go-xmp/blob/master/.github/CONTRIBUTING.md).
 
 
 License

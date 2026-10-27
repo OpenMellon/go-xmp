@@ -18,8 +18,8 @@ import (
 	"encoding/json"
 	"testing"
 
-	_ "github.com/OpenMellon/openpdf/go-xmp/models"
-	"github.com/OpenMellon/openpdf/go-xmp/xmp"
+	_ "github.com/OpenMellon/go-xmp/models"
+	"github.com/OpenMellon/go-xmp/xmp"
 )
 
 // Benchmarks

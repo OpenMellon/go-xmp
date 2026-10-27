@@ -18,7 +18,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/OpenMellon/openpdf/go-xmp/xmp"
+	"github.com/OpenMellon/go-xmp/xmp"
 )
 
 // A self-contained model exercising the decode paths that abort the whole

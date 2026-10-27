@@ -5,8 +5,8 @@ import (
 	"testing"
 	"time"
 
-	xmpdm "github.com/OpenMellon/openpdf/go-xmp/models/xmp_dm"
-	"github.com/OpenMellon/openpdf/go-xmp/xmp"
+	xmpdm "github.com/OpenMellon/go-xmp/models/xmp_dm"
+	"github.com/OpenMellon/go-xmp/xmp"
 )
 
 // A ResourceRef with AlternatePaths set is serialized with rdf:parseType="Resource",

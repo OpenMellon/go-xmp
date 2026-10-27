@@ -30,11 +30,11 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/OpenMellon/openpdf/go-xmp/models/dc"
-	"github.com/OpenMellon/openpdf/go-xmp/models/ps"
-	"github.com/OpenMellon/openpdf/go-xmp/models/tiff"
-	"github.com/OpenMellon/openpdf/go-xmp/models/xmp_base"
-	"github.com/OpenMellon/openpdf/go-xmp/xmp"
+	"github.com/OpenMellon/go-xmp/models/dc"
+	"github.com/OpenMellon/go-xmp/models/ps"
+	"github.com/OpenMellon/go-xmp/models/tiff"
+	"github.com/OpenMellon/go-xmp/models/xmp_base"
+	"github.com/OpenMellon/go-xmp/xmp"
 )
 
 var (

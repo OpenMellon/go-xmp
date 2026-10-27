@@ -12,7 +12,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/OpenMellon/openpdf/go-xmp/xmp"
+	"github.com/OpenMellon/go-xmp/xmp"
 )
 
 type LocationRole int
