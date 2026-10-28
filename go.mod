@@ -1,6 +1,8 @@
 module github.com/OpenMellon/go-xmp
 
-go 1.27.3
+go 1.26.0
+
+toolchain go1.27.3
 
 require (
 	github.com/golang/snappy v1.0.0
