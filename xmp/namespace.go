@@ -39,8 +39,10 @@ type Namespace struct {
 }
 
 // Namespace Groups
-type NamespaceGroup string
-type NamespaceGroupList []NamespaceGroup
+type (
+	NamespaceGroup     string
+	NamespaceGroupList []NamespaceGroup
+)
 
 const (
 	NoMetadata     NamespaceGroup = ""
@@ -205,15 +207,15 @@ func (l *NamespaceList) RemoveDups() NamespaceList {
 }
 
 func stripPrefix(n string) string {
-	if i := strings.Index(n, ":"); i > -1 {
-		return n[i+1:]
+	if _, after, ok := strings.Cut(n, ":"); ok {
+		return after
 	}
 	return n
 }
 
 func getPrefix(n string) string {
-	if i := strings.Index(n, ":"); i > -1 {
-		return n[:i]
+	if before, _, ok := strings.Cut(n, ":"); ok {
+		return before
 	}
 	return n
 }

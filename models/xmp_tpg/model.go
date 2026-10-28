@@ -18,6 +18,7 @@ package xmptpg
 
 import (
 	"fmt"
+
 	"github.com/OpenMellon/go-xmp/xmp"
 )
 

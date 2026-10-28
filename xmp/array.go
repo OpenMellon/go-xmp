@@ -33,7 +33,6 @@ type Array interface {
 }
 
 // Choice / Alternative Arrays with xml:lang support
-//
 type ArrayType string
 
 const (
@@ -69,7 +68,7 @@ func (x AltString) IsZero() bool {
 	return len(x) == 0
 }
 
-func NewAltString(items ...interface{}) AltString {
+func NewAltString(items ...any) AltString {
 	if len(items) == 0 {
 		return nil
 	}
@@ -281,7 +280,6 @@ func (x *AltStringArray) UnmarshalXMP(d *Decoder, node *Node, m Model) error {
 }
 
 // Unordered Integer Arrays
-//
 type IntArray []int
 
 func (x IntArray) IsZero() bool {
@@ -311,7 +309,6 @@ func (x *IntArray) UnmarshalXMP(d *Decoder, node *Node, m Model) error {
 }
 
 // Ordered Integer Arrays
-//
 type IntList []int
 
 func (x IntList) IsZero() bool {
@@ -349,7 +346,6 @@ func (x *IntList) UnmarshalXMP(d *Decoder, node *Node, m Model) error {
 }
 
 // Ordered String Arrays
-//
 type StringList []string
 
 func (x StringList) IsZero() bool {
@@ -439,7 +435,6 @@ func (x StringList) MarshalText() ([]byte, error) {
 }
 
 // Unordered String Arrays
-//
 type StringArray []string
 
 func NewStringArray(items ...string) StringArray {
@@ -528,8 +523,7 @@ func (x StringArray) MarshalText() ([]byte, error) {
 	return []byte(strings.Join(x, "\n")), nil
 }
 
-func MarshalArray(e *Encoder, node *Node, typ ArrayType, items interface{}) error {
-
+func MarshalArray(e *Encoder, node *Node, typ ArrayType, items any) error {
 	val := reflect.ValueOf(items)
 	kind := val.Kind()
 
@@ -553,7 +547,7 @@ func MarshalArray(e *Encoder, node *Node, typ ArrayType, items interface{}) erro
 		v := val.Index(i).Interface()
 
 		// add xml:Lang attribute to alternatives
-		if reflect.TypeOf(v) == reflect.TypeOf(AltItem{}) {
+		if reflect.TypeOf(v) == reflect.TypeFor[AltItem]() {
 			ai := v.(AltItem)
 			if typ == ArrayTypeAlternative {
 				if ai.IsDefault || val.Len() == 1 {
@@ -599,7 +593,7 @@ func MarshalArray(e *Encoder, node *Node, typ ArrayType, items interface{}) erro
 	return nil
 }
 
-func UnmarshalArray(d *Decoder, node *Node, typ ArrayType, out interface{}) error {
+func UnmarshalArray(d *Decoder, node *Node, typ ArrayType, out any) error {
 	sliceValue := reflect.Indirect(reflect.ValueOf(out))
 	itemType := sliceValue.Type().Elem()
 
@@ -625,7 +619,7 @@ func UnmarshalArray(d *Decoder, node *Node, typ ArrayType, out interface{}) erro
 		}
 
 		val := reflect.New(itemType)
-		if itemType == reflect.TypeOf(AltItem{}) {
+		if itemType == reflect.TypeFor[AltItem]() {
 			// Special unmarshalling for AltItems with lang attributes
 			//
 			i := val.Interface().(*AltItem)

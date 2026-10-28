@@ -18,11 +18,11 @@ import (
 	"bytes"
 	"fmt"
 	"strconv"
+
 	"github.com/OpenMellon/go-xmp/xmp"
 )
 
 // Point "x, y"
-//
 type Point struct {
 	X int64
 	Y int64

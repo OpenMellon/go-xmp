@@ -199,7 +199,7 @@ func SetLocaleField(v Model, lang string, name, value string) error {
 	// load and potentially create value
 	f = derefValue(f)
 
-	if f.Kind() != reflect.Slice || f.Type().Elem() != reflect.TypeOf(AltItem{}) {
+	if f.Kind() != reflect.Slice || f.Type().Elem() != reflect.TypeFor[AltItem]() {
 		return fmt.Errorf("field '%s' must be of type xmp.AltString, found type '%s' kind '%s'", name, f.Type().String(), f.Kind())
 	}
 
@@ -228,7 +228,7 @@ func GetLocaleField(v Model, lang string, name string) (string, error) {
 
 	f := finfo.value(val)
 
-	if f.Kind() != reflect.Slice && f.Type().Elem() != reflect.TypeOf(AltItem{}) {
+	if f.Kind() != reflect.Slice && f.Type().Elem() != reflect.TypeFor[AltItem]() {
 		return "", fmt.Errorf("field '%s' must be of type AltString, found %s (%s)", name, f.Type().String(), f.Kind())
 	}
 
@@ -315,7 +315,7 @@ func ListNativeFields(v Model) (TagList, error) {
 		}
 
 		// handle multi-language arrays
-		if fv.Kind() == reflect.Slice && fv.Type().Elem() == reflect.TypeOf(AltItem{}) {
+		if fv.Kind() == reflect.Slice && fv.Type().Elem() == reflect.TypeFor[AltItem]() {
 			a, ok := fv.Interface().(AltString)
 			if !ok {
 				return nil, fmt.Errorf("field '%s' must be of type AltString", finfo.name)

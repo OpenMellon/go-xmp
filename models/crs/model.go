@@ -17,12 +17,11 @@ package crs
 
 import (
 	"fmt"
+
 	"github.com/OpenMellon/go-xmp/xmp"
 )
 
-var (
-	NsCrs = xmp.NewNamespace("crs", "http://ns.adobe.com/camera-raw-settings/1.0/", NewModel)
-)
+var NsCrs = xmp.NewNamespace("crs", "http://ns.adobe.com/camera-raw-settings/1.0/", NewModel)
 
 func init() {
 	xmp.Register(NsCrs, xmp.ImageMetadata)

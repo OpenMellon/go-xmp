@@ -17,12 +17,11 @@ package dc
 
 import (
 	"fmt"
+
 	"github.com/OpenMellon/go-xmp/xmp"
 )
 
-var (
-	NsDc = xmp.NewNamespace("dc", "http://purl.org/dc/elements/1.1/", NewModel)
-)
+var NsDc = xmp.NewNamespace("dc", "http://purl.org/dc/elements/1.1/", NewModel)
 
 func init() {
 	xmp.Register(NsDc, xmp.XmpMetadata)

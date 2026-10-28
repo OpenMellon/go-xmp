@@ -60,6 +60,7 @@ package xmp
 
 import (
 	"fmt"
+	"maps"
 	"strings"
 )
 
@@ -118,7 +119,7 @@ func ParseSyncFlag(s string) SyncFlags {
 
 func ParseSyncFlags(s string) (SyncFlags, error) {
 	var flags SyncFlags
-	for _, v := range strings.Split(s, ",") {
+	for v := range strings.SplitSeq(s, ",") {
 		f := ParseSyncFlag(strings.ToLower(v))
 		if f == 0 {
 			return 0, fmt.Errorf("invalid xmp sync flag '%s'", v)
@@ -254,12 +255,8 @@ func (d *Document) Merge(b *Document, flags SyncFlags) error {
 	}
 
 	// copy namespaces
-	for n, v := range b.intNsMap {
-		d.intNsMap[n] = v
-	}
-	for n, v := range b.extNsMap {
-		d.extNsMap[n] = v
-	}
+	maps.Copy(d.intNsMap, b.intNsMap)
+	maps.Copy(d.extNsMap, b.extNsMap)
 
 	// copy content
 	for _, v := range p {

@@ -37,7 +37,6 @@ import (
 // VideoOrientation: like TIFF/EXIF Orientation property
 // AffineTransform: used in place of a track display matrix, 3x3 float matrix in row major order
 // Direction: degree offset from magnetic north
-//
 type QtMetadata struct {
 	// official metadata keys as defined in MacOS 10.11 SDK
 	Album                  string         `qt:"com.apple.quicktime.album"                                 qt:"©alb"      xmp:"qt:Album"`

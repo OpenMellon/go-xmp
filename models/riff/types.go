@@ -16,6 +16,7 @@ package riff
 
 import (
 	"strings"
+
 	"github.com/OpenMellon/go-xmp/xmp"
 )
 
@@ -42,7 +43,7 @@ type AltString xmp.AltString
 
 func (x *AltString) UnmarshalText(data []byte) error {
 	as := xmp.AltString{}
-	for _, v := range strings.Split(string(data), "; ") {
+	for v := range strings.SplitSeq(string(data), "; ") {
 		as.Add("eng", v)
 	}
 	*x = AltString(as)

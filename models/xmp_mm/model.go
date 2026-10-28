@@ -17,7 +17,8 @@ package xmpmm
 
 import (
 	"fmt"
-	"github.com/OpenMellon/go-xmp/models/xmp_dm"
+
+	xmpdm "github.com/OpenMellon/go-xmp/models/xmp_dm"
 	"github.com/OpenMellon/go-xmp/xmp"
 )
 

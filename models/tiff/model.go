@@ -21,13 +21,11 @@ import (
 	"strings"
 
 	"github.com/OpenMellon/go-xmp/models/dc"
-	"github.com/OpenMellon/go-xmp/models/xmp_base"
+	xmpbase "github.com/OpenMellon/go-xmp/models/xmp_base"
 	"github.com/OpenMellon/go-xmp/xmp"
 )
 
-var (
-	NsTiff = xmp.NewNamespace("tiff", "http://ns.adobe.com/tiff/1.0/", NewModel)
-)
+var NsTiff = xmp.NewNamespace("tiff", "http://ns.adobe.com/tiff/1.0/", NewModel)
 
 func init() {
 	xmp.Register(NsTiff, xmp.ImageMetadata)

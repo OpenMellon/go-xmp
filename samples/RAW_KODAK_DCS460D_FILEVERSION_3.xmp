@@ -11,7 +11,21 @@
   </tiff:BitsPerSample>
   <tiff:ImageDescription>
    <rdf:Alt>
-    <rdf:li xml:lang='x-default'>[ 2]ISO:        80  Aperture:   F-- Shutter:    200 Lens (mm):  ??  Exposure:   A   Program:    SL  Exp Comp:    0.0Meter area: MtrxFlash sync: NormDrive mode: S   Focus mode: M   Focus area: SpotDistance:   ??  </rdf:li>
+    <rdf:li xml:lang='x-default'>[ 2]
+ISO:        80
+Aperture:   F--
+Shutter:    200
+Lens (mm):  ??
+Exposure:   A
+Program:    SL
+Exp Comp:    0.0
+Meter area: Mtrx
+Flash sync: Norm
+Drive mode: S
+Focus mode: M
+Focus area: Spot
+Distance:   ??
+</rdf:li>
    </rdf:Alt>
   </tiff:ImageDescription>
   <tiff:ImageLength>2048</tiff:ImageLength>

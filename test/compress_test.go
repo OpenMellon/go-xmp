@@ -78,7 +78,6 @@ func newStats() *TestStats {
 }
 
 func TestCompression(T *testing.T) {
-
 	st := newStats()
 
 	// run tests

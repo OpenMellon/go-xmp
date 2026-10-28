@@ -17,12 +17,11 @@ package xmprights
 
 import (
 	"fmt"
+
 	"github.com/OpenMellon/go-xmp/xmp"
 )
 
-var (
-	NsXmpRights = xmp.NewNamespace("xmpRights", "http://ns.adobe.com/xap/1.0/rights/", NewModel)
-)
+var NsXmpRights = xmp.NewNamespace("xmpRights", "http://ns.adobe.com/xap/1.0/rights/", NewModel)
 
 func init() {
 	xmp.Register(NsXmpRights, xmp.XmpMetadata, xmp.RightsMetadata)

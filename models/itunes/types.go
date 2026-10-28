@@ -33,7 +33,8 @@ type SMPB struct {
 
 // Gapless Playback info
 // iTunSMPB 00000000 00000840 000001CA 00000000003F31F6 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
-//                   Delay    Padding  SampleCount               EndOffset
+//
+//	Delay    Padding  SampleCount               EndOffset
 func (x *SMPB) UnmarshalText(data []byte) error {
 	var err error
 	sm := SMPB{}

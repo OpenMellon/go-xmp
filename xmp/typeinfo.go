@@ -106,21 +106,23 @@ const (
 
 type tinfoMap map[reflect.Type]*typeInfo
 
-var tinfoNsMap = make(map[string]tinfoMap)
-var tinfoLock sync.RWMutex
+var (
+	tinfoNsMap = make(map[string]tinfoMap)
+	tinfoLock  sync.RWMutex
+)
 
 var (
-	binaryUnmarshalerType = reflect.TypeOf((*encoding.BinaryUnmarshaler)(nil)).Elem()
-	binaryMarshalerType   = reflect.TypeOf((*encoding.BinaryMarshaler)(nil)).Elem()
-	textUnmarshalerType   = reflect.TypeOf((*encoding.TextUnmarshaler)(nil)).Elem()
-	textMarshalerType     = reflect.TypeOf((*encoding.TextMarshaler)(nil)).Elem()
-	marshalerType         = reflect.TypeOf((*Marshaler)(nil)).Elem()
-	unmarshalerType       = reflect.TypeOf((*Unmarshaler)(nil)).Elem()
-	attrMarshalerType     = reflect.TypeOf((*MarshalerAttr)(nil)).Elem()
-	attrUnmarshalerType   = reflect.TypeOf((*UnmarshalerAttr)(nil)).Elem()
-	arrayType             = reflect.TypeOf((*Array)(nil)).Elem()
-	zeroType              = reflect.TypeOf((*Zero)(nil)).Elem()
-	stringerType          = reflect.TypeOf((*fmt.Stringer)(nil)).Elem()
+	binaryUnmarshalerType = reflect.TypeFor[encoding.BinaryUnmarshaler]()
+	binaryMarshalerType   = reflect.TypeFor[encoding.BinaryMarshaler]()
+	textUnmarshalerType   = reflect.TypeFor[encoding.TextUnmarshaler]()
+	textMarshalerType     = reflect.TypeFor[encoding.TextMarshaler]()
+	marshalerType         = reflect.TypeFor[Marshaler]()
+	unmarshalerType       = reflect.TypeFor[Unmarshaler]()
+	attrMarshalerType     = reflect.TypeFor[MarshalerAttr]()
+	attrUnmarshalerType   = reflect.TypeFor[UnmarshalerAttr]()
+	arrayType             = reflect.TypeFor[Array]()
+	zeroType              = reflect.TypeFor[Zero]()
+	stringerType          = reflect.TypeFor[fmt.Stringer]()
 )
 
 // getTypeInfo returns the typeInfo structure with details necessary
@@ -357,7 +359,7 @@ func (finfo *fieldInfo) value(v reflect.Value) reflect.Value {
 
 // Load value from interface, but only if the result will be
 // usefully addressable.
-func derefIndirect(v interface{}) reflect.Value {
+func derefIndirect(v any) reflect.Value {
 	return derefValue(reflect.ValueOf(v))
 }
 

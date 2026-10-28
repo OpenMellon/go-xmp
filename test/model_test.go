@@ -83,10 +83,12 @@ func (x *TestModel) SetTag(tag, value string) error {
 	return nil
 }
 
-type TestType1 string
-type TestType2 string
-type TestType3 string
-type TestType4 string
+type (
+	TestType1 string
+	TestType2 string
+	TestType3 string
+	TestType4 string
+)
 
 func (t *TestType1) UnmarshalText(b []byte) error {
 	s := string(b)

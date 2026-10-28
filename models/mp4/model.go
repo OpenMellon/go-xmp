@@ -17,13 +17,12 @@ package mp4
 
 import (
 	"fmt"
+
 	"github.com/OpenMellon/go-xmp/models/qt"
 	"github.com/OpenMellon/go-xmp/xmp"
 )
 
-var (
-	NsMP4 = xmp.NewNamespace("mp4", "http://ns.apple.com/quicktime/mp4/1.0/", NewModel)
-)
+var NsMP4 = xmp.NewNamespace("mp4", "http://ns.apple.com/quicktime/mp4/1.0/", NewModel)
 
 func init() {
 	xmp.Register(NsMP4, xmp.MovieMetadata)

@@ -121,7 +121,7 @@ func Unmarshal(data []byte, d *Document) error {
 	return NewDecoder(bytes.NewReader(data)).Decode(d)
 }
 
-func (d *Decoder) DecodeElement(v interface{}, src *Node) error {
+func (d *Decoder) DecodeElement(v any, src *Node) error {
 	val := reflect.ValueOf(v)
 	if val.Kind() != reflect.Ptr {
 		return fmt.Errorf("xmp: model for '%s' is not a pointer", reflect.TypeOf(v))
@@ -130,7 +130,6 @@ func (d *Decoder) DecodeElement(v interface{}, src *Node) error {
 }
 
 func (d *Decoder) Decode(x *Document) error {
-
 	if x == nil {
 		return nil
 	}
@@ -207,7 +206,6 @@ func (d *Decoder) Decode(x *Document) error {
 }
 
 func (d *Decoder) decodeNode(ctx *NodeList, src *Node) error {
-
 	node, err := d.lookupNode(ctx, src.XMLName)
 	if err != nil {
 		return err
@@ -241,7 +239,6 @@ func (d *Decoder) decodeNode(ctx *NodeList, src *Node) error {
 }
 
 func (d *Decoder) decodeAttribute(ctx *NodeList, src Attr) error {
-
 	d.translate(&src.Name)
 	if skipField(src.Name) {
 		return nil

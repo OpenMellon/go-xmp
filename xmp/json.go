@@ -30,10 +30,10 @@ type jsonDocument struct {
 }
 
 type jsonOutDocument struct {
-	About      string                 `json:"about,omitempty"`
-	Toolkit    string                 `json:"toolkit,omitempty"`
-	Namespaces map[string]string      `json:"namespaces"`
-	Models     map[string]interface{} `json:"models"`
+	About      string            `json:"about,omitempty"`
+	Toolkit    string            `json:"toolkit,omitempty"`
+	Namespaces map[string]string `json:"namespaces"`
+	Models     map[string]any    `json:"models"`
 }
 
 func (d *Document) MarshalJSON() ([]byte, error) {
@@ -46,7 +46,7 @@ func (d *Document) MarshalJSON() ([]byte, error) {
 		About:      d.about,
 		Toolkit:    d.toolkit,
 		Namespaces: make(map[string]string),
-		Models:     make(map[string]interface{}),
+		Models:     make(map[string]any),
 	}
 
 	if out.Toolkit == "" {
@@ -120,13 +120,13 @@ func (d *Document) MarshalJSON() ([]byte, error) {
 	return b, nil
 }
 
-func nodeToJson(n *Node) (interface{}, error) {
+func nodeToJson(n *Node) (any, error) {
 	// process value leaf nodes (Note: value and model are mutually exclusive)
 	if n.Value != "" {
 		return &n.Value, nil
 	}
 
-	out := make(map[string]interface{})
+	out := make(map[string]any)
 
 	// add node attributes
 	for _, v := range n.Attr {
@@ -144,7 +144,7 @@ func nodeToJson(n *Node) (interface{}, error) {
 		switch v.FullName() {
 		case "rdf:Bag", "rdf:Seq":
 			// skip outer node and unwrap inner li nodes as array elements
-			a := make([]interface{}, 0)
+			a := make([]any, 0)
 			for _, vv := range v.Nodes {
 				if vv.Value != "" {
 					// simple lists (i.e. string lists or numbers etc)
@@ -165,7 +165,7 @@ func nodeToJson(n *Node) (interface{}, error) {
 			// determine content type (strings or objects)
 			if len(v.Nodes) > 0 && len(v.Nodes[0].Nodes) > 0 {
 				// object type: skip outer node and insert interface
-				a := make([]interface{}, 0)
+				a := make([]any, 0)
 				for _, vv := range v.Nodes {
 					if m, err := nodeToJson(vv); err != nil {
 						return nil, err
@@ -253,7 +253,7 @@ func (d *Document) UnmarshalJSON(data []byte) error {
 	for name, b := range in.Models {
 		node := NewNode(xml.Name{Local: name})
 		root.Nodes = append(root.Nodes, node)
-		content := make(map[string]interface{})
+		content := make(map[string]any)
 		if err := json.Unmarshal(b, &content); err != nil {
 			return fmt.Errorf("xmp: json unmarshal model '%s' failed: %v", name, err)
 		}
@@ -287,7 +287,7 @@ func (d *Document) UnmarshalJSON(data []byte) error {
 	return d.syncFromXMP()
 }
 
-func jsonToNode(name string, v interface{}, node *Node) {
+func jsonToNode(name string, v any, node *Node) {
 	switch {
 	case isSimpleValue(v):
 		var s string
@@ -324,11 +324,11 @@ func jsonToNode(name string, v interface{}, node *Node) {
 		anode := NewNode(xml.Name{Space: nsRDF.GetURI(), Local: string(typ)})
 		containerNode.Nodes = append(containerNode.Nodes, anode)
 
-		for _, av := range v.([]interface{}) {
+		for _, av := range v.([]any) {
 			linode := NewNode(xml.Name{Space: nsRDF.GetURI(), Local: "li"})
 			anode.Nodes = append(anode.Nodes, linode)
 			if typ == ArrayTypeAlternative {
-				item := av.(map[string]interface{})
+				item := av.(map[string]any)
 				def := item["isDefault"].(bool)
 				lang := item["lang"].(string)
 				val := item["value"].(string)
@@ -372,7 +372,7 @@ func jsonToNode(name string, v interface{}, node *Node) {
 			onode = NewNode(xml.Name{Local: name})
 			node.Nodes = append(node.Nodes, onode)
 		}
-		for on, ov := range v.(map[string]interface{}) {
+		for on, ov := range v.(map[string]any) {
 			if isArrayItemType(v) && on == "value" {
 				jsonToNode("", ov, onode)
 			} else {
@@ -383,7 +383,7 @@ func jsonToNode(name string, v interface{}, node *Node) {
 }
 
 // JSON unmarshal helpers
-func isSimpleValue(v interface{}) bool {
+func isSimpleValue(v any) bool {
 	switch v.(type) {
 	case string, float64, bool, nil:
 		return true
@@ -392,28 +392,28 @@ func isSimpleValue(v interface{}) bool {
 	}
 }
 
-func isObjectValue(v interface{}) bool {
+func isObjectValue(v any) bool {
 	switch v.(type) {
-	case map[string]interface{}:
+	case map[string]any:
 		return true
 	default:
 		return false
 	}
 }
 
-func isArrayValue(v interface{}) bool {
+func isArrayValue(v any) bool {
 	switch v.(type) {
-	case []interface{}:
+	case []any:
 		return true
 	default:
 		return false
 	}
 }
 
-func isArrayItemType(v interface{}) bool {
+func isArrayItemType(v any) bool {
 	// alternative array item
 	if isObjectValue(v) {
-		val := v.(map[string]interface{})
+		val := v.(map[string]any)
 		if len(val) > 3 {
 			return false
 		}
@@ -431,8 +431,8 @@ func isArrayItemType(v interface{}) bool {
 	return false
 }
 
-func getArrayType(v interface{}) ArrayType {
-	slice, ok := v.([]interface{})
+func getArrayType(v any) ArrayType {
+	slice, ok := v.([]any)
 	if !ok || len(slice) == 0 {
 		return ArrayTypeOrdered
 	}

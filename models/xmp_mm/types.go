@@ -16,7 +16,7 @@
 package xmpmm
 
 import (
-	"github.com/OpenMellon/go-xmp/models/xmp_dm"
+	xmpdm "github.com/OpenMellon/go-xmp/models/xmp_dm"
 	"github.com/OpenMellon/go-xmp/xmp"
 )
 
@@ -83,7 +83,7 @@ func (x *ResourceRefArray) DeleteIndex(idx int) {
 	if idx < 0 || idx > len(*x) {
 		return
 	}
-	*x = append((*x)[:idx], ((*x)[idx+1:])...)
+	*x = append((*x)[:idx], (*x)[idx+1:]...)
 }
 
 func (x ResourceRefArray) Typ() xmp.ArrayType {

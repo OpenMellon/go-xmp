@@ -17,15 +17,14 @@ package riff
 
 import (
 	"fmt"
+
 	"github.com/OpenMellon/go-xmp/models/dc"
-	"github.com/OpenMellon/go-xmp/models/xmp_base"
-	"github.com/OpenMellon/go-xmp/models/xmp_dm"
+	xmpbase "github.com/OpenMellon/go-xmp/models/xmp_base"
+	xmpdm "github.com/OpenMellon/go-xmp/models/xmp_dm"
 	"github.com/OpenMellon/go-xmp/xmp"
 )
 
-var (
-	NsRiff = xmp.NewNamespace("riffinfo", "http://ns.adobe.com/riff/info", NewModel)
-)
+var NsRiff = xmp.NewNamespace("riffinfo", "http://ns.adobe.com/riff/info", NewModel)
 
 func init() {
 	xmp.Register(NsRiff, xmp.SoundMetadata)

@@ -17,13 +17,12 @@ package xmpdm
 
 import (
 	"fmt"
-	"github.com/OpenMellon/go-xmp/models/xmp_tpg"
+
+	xmptpg "github.com/OpenMellon/go-xmp/models/xmp_tpg"
 	"github.com/OpenMellon/go-xmp/xmp"
 )
 
-var (
-	NsXmpDM = xmp.NewNamespace("xmpDM", "http://ns.adobe.com/xmp/1.0/DynamicMedia/", NewModel)
-)
+var NsXmpDM = xmp.NewNamespace("xmpDM", "http://ns.adobe.com/xmp/1.0/DynamicMedia/", NewModel)
 
 func init() {
 	xmp.Register(NsXmpDM, xmp.XmpMetadata)

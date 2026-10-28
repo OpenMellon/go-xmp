@@ -29,15 +29,13 @@ func TestNodePoolConcurrent(t *testing.T) {
 	)
 	var wg sync.WaitGroup
 	for w := 0; w < workers; w++ {
-		wg.Add(1)
-		go func() {
-			defer wg.Done()
+		wg.Go(func() {
 			for i := 0; i < iterations; i++ {
 				n := NewNode(NewName("test"))
 				n.Nodes = append(n.Nodes, NewNode(NewName("child")))
 				n.Close()
 			}
-		}()
+		})
 	}
 	wg.Wait()
 }

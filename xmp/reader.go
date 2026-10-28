@@ -62,9 +62,11 @@ func ScanPackets(r io.Reader) ([][]byte, error) {
 	return packets, nil
 }
 
-var packet_start = []byte("<?xpacket begin")
-var packet_end = []byte("<?xpacket end")       // plus suffix `"w"?>`
-var magic = []byte("W5M0MpCehiHzreSzNTczkc9d") // len 24
+var (
+	packet_start = []byte("<?xpacket begin")
+	packet_end   = []byte("<?xpacket end")            // plus suffix `"w"?>`
+	magic        = []byte("W5M0MpCehiHzreSzNTczkc9d") // len 24
+)
 
 func isXmpPacket(b []byte) bool {
 	return bytes.Index(b[:51], magic) > -1

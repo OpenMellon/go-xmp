@@ -23,9 +23,7 @@ import (
 	"github.com/OpenMellon/go-xmp/xmp"
 )
 
-var (
-	NsITunes = xmp.NewNamespace("iTunes", "http://ns.apple.com/itunes/1.0/", NewModel)
-)
+var NsITunes = xmp.NewNamespace("iTunes", "http://ns.apple.com/itunes/1.0/", NewModel)
 
 func init() {
 	xmp.Register(NsITunes, xmp.MusicMetadata)

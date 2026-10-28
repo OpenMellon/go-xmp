@@ -11,7 +11,19 @@
   </tiff:BitsPerSample>
   <tiff:ImageDescription>
    <rdf:Alt>
-    <rdf:li xml:lang='x-default'>[17]ISO:        80  Aperture:   F10 Shutter:    30  Exposure:   Av  Exp Comp:   +1.0Meter area: PartFlash sync: NoneFlash comp:  0.0Drive mode: ContFocus mode: One Lens (mm):  0035</rdf:li>
+    <rdf:li xml:lang='x-default'>[17]
+ISO:        80
+Aperture:   F10
+Shutter:    30
+Exposure:   Av
+Exp Comp:   +1.0
+Meter area: Part
+Flash sync: None
+Flash comp:  0.0
+Drive mode: Cont
+Focus mode: One
+Lens (mm):  0035
+</rdf:li>
    </rdf:Alt>
   </tiff:ImageDescription>
   <tiff:ImageLength>2048</tiff:ImageLength>

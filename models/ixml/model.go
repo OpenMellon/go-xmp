@@ -32,15 +32,13 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/OpenMellon/go-xmp/models/xmp_dm"
+	xmpdm "github.com/OpenMellon/go-xmp/models/xmp_dm"
 	"github.com/OpenMellon/go-xmp/xmp"
 )
 
 const ixmlVersion = "2.0"
 
-var (
-	NsIXML = xmp.NewNamespace("iXML", "http://ns.adobe.com/ixml/1.0/", NewModel)
-)
+var NsIXML = xmp.NewNamespace("iXML", "http://ns.adobe.com/ixml/1.0/", NewModel)
 
 func init() {
 	xmp.Register(NsIXML, xmp.SoundMetadata)

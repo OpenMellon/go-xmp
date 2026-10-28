@@ -4,12 +4,11 @@ package digikam
 
 import (
 	"fmt"
+
 	"github.com/OpenMellon/go-xmp/xmp"
 )
 
-var (
-	NsDk = xmp.NewNamespace("digiKam", "http://www.digikam.org/ns/1.0/", NewModel)
-)
+var NsDk = xmp.NewNamespace("digiKam", "http://www.digikam.org/ns/1.0/", NewModel)
 
 func init() {
 	xmp.Register(NsDk, xmp.XmpMetadata)

@@ -20,10 +20,12 @@ import (
 	"encoding/json"
 	"fmt"
 	"math"
+	"slices"
 	"sort"
 	"strconv"
 	"strings"
 	"time"
+
 	"github.com/OpenMellon/go-xmp/xmp"
 )
 
@@ -145,7 +147,7 @@ func (x *PartList) AddPart(p Part) {
 
 func (x *PartList) UnmarshalText(data []byte) error {
 	l := make(PartList, 0)
-	for _, v := range bytes.Split(data, []byte(";")) {
+	for v := range bytes.SplitSeq(data, []byte(";")) {
 		p := Part{}
 		if err := p.UnmarshalText(v); err != nil {
 			return err
@@ -447,12 +449,7 @@ func (x MarkerTypeList) Intersect(y MarkerTypeList) MarkerTypeList {
 }
 
 func (x MarkerTypeList) Contains(t MarkerType) bool {
-	for _, v := range x {
-		if v == t {
-			return true
-		}
-	}
-	return false
+	return slices.Contains(x, t)
 }
 
 // 1.2.6.6 Media

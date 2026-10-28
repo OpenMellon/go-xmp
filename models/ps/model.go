@@ -20,12 +20,11 @@ package ps
 
 import (
 	"fmt"
+
 	"github.com/OpenMellon/go-xmp/xmp"
 )
 
-var (
-	NsPhotoshop = xmp.NewNamespace("photoshop", "http://ns.adobe.com/photoshop/1.0/", NewModel)
-)
+var NsPhotoshop = xmp.NewNamespace("photoshop", "http://ns.adobe.com/photoshop/1.0/", NewModel)
 
 func init() {
 	xmp.Register(NsPhotoshop, xmp.ImageMetadata)

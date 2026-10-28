@@ -17,12 +17,11 @@ package dji
 
 import (
 	"fmt"
+
 	"github.com/OpenMellon/go-xmp/xmp"
 )
 
-var (
-	NsDJI = xmp.NewNamespace("drone-dji", "http://www.dji.com/drone-dji/1.0/", NewModel)
-)
+var NsDJI = xmp.NewNamespace("drone-dji", "http://www.dji.com/drone-dji/1.0/", NewModel)
 
 func init() {
 	xmp.Register(NsDJI, xmp.CameraMetadata)

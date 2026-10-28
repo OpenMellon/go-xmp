@@ -131,7 +131,7 @@ func (r *Registry) Prefixes() []string {
 	r.m.RLock()
 	defer r.m.RUnlock()
 	l := make([]string, 0, len(r.nsNameMap))
-	for n, _ := range r.nsNameMap {
+	for n := range r.nsNameMap {
 		l = append(l, n)
 	}
 	return l

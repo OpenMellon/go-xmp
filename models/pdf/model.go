@@ -17,14 +17,13 @@ package pdf
 
 import (
 	"fmt"
+
 	"github.com/OpenMellon/go-xmp/models/dc"
-	"github.com/OpenMellon/go-xmp/models/xmp_base"
+	xmpbase "github.com/OpenMellon/go-xmp/models/xmp_base"
 	"github.com/OpenMellon/go-xmp/xmp"
 )
 
-var (
-	NsPDF = xmp.NewNamespace("pdf", "http://ns.adobe.com/pdf/1.3/", NewModel)
-)
+var NsPDF = xmp.NewNamespace("pdf", "http://ns.adobe.com/pdf/1.3/", NewModel)
 
 func init() {
 	xmp.Register(NsPDF, xmp.XmpMetadata)

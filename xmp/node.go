@@ -241,7 +241,7 @@ func (n *Node) Namespaces(d *Document) NamespaceList {
 		l = append(l, v.Namespaces(d)...)
 	}
 
-	for name, _ := range m {
+	for name := range m {
 		ns := d.findNsByPrefix(name)
 		if ns != nil && ns != nsRDF && ns != nsXML {
 			l = append(l, ns)
@@ -352,7 +352,6 @@ func (n *Node) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
 			Data:  n.Model,
 			Nodes: n.Nodes,
 		}, start)
-
 	} else {
 		return e.EncodeElement(struct {
 			Data  string `xml:",chardata"`
@@ -361,7 +360,6 @@ func (n *Node) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
 			Data:  n.Value,
 			Nodes: n.Nodes,
 		}, start)
-
 	}
 }
 

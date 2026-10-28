@@ -18,6 +18,7 @@ package xmpbase
 import (
 	"fmt"
 	"strings"
+
 	"github.com/OpenMellon/go-xmp/xmp"
 )
 

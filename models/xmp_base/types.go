@@ -17,6 +17,7 @@ package xmpbase
 
 import (
 	"bytes"
+
 	"github.com/OpenMellon/go-xmp/xmp"
 )
 
@@ -110,7 +111,7 @@ func (x *Identifier) UnmarshalText(data []byte) error {
 
 type IdentifierArray []Identifier
 
-func NewIdentifierArray(items ...interface{}) IdentifierArray {
+func NewIdentifierArray(items ...any) IdentifierArray {
 	x := make(IdentifierArray, 0)
 	for _, v := range items {
 		if s := xmp.ToString(v); s != "" {

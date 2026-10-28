@@ -153,7 +153,7 @@ var dateFormats []string = []string{
 }
 
 var illegalZero StringList = StringList{
-	"--", // ARRI undefined
+	"--",                      // ARRI undefined
 	"00/00/00T00:00:00+00:00", // ARRI zero time
 }
 
@@ -251,8 +251,8 @@ func normalizePDFDate(value string) string {
 	case off[0] == '+' || off[0] == '-':
 		body := strings.Trim(off[1:], "'")
 		hh, mm := body, "00"
-		if j := strings.IndexByte(body, '\''); j >= 0 {
-			hh, mm = body[:j], body[j+1:]
+		if before, after, ok := strings.Cut(body, "'"); ok {
+			hh, mm = before, after
 		} else if len(body) > 2 {
 			hh, mm = body[:len(body)-2], body[len(body)-2:]
 		}
@@ -379,7 +379,6 @@ func (x *Time) UnmarshalText(data []byte) error {
 }
 
 // 8.2.2.1 AgentName
-//
 type AgentName string
 
 func (x AgentName) IsZero() bool {
@@ -391,7 +390,6 @@ func (x AgentName) String() string {
 }
 
 // 8.2.2.3 GUID (a simple non-Uri identifier)
-//
 type GUID string
 
 // func newGUID(issuer string, u uuid.UUID) GUID {
@@ -505,7 +503,6 @@ func (x *UrlList) UnmarshalXMP(d *Decoder, node *Node, m Model) error {
 }
 
 // 8.2.2.10 Uri (Note: special handling as rdf:resource attribute without node content)
-//
 type Uri string
 
 func (x Uri) Value() string {
@@ -587,7 +584,6 @@ func (x *UriList) UnmarshalXMP(d *Decoder, node *Node, m Model) error {
 }
 
 // Rational "n/m"
-//
 type Rational struct {
 	Num int64
 	Den int64
@@ -711,11 +707,12 @@ func (a *RationalArray) UnmarshalXMP(d *Decoder, node *Node, m Model) error {
 // GPS Coordinates
 //
 // “DDD,MM,SSk” or “DDD,MM.mmk”
-//  DDD is a number of degrees
-//  MM is a number of minutes
-//  SS is a number of seconds
-//  mm is a fraction of minutes
-//  k is a single character N, S, E, or W indicating a direction (north, south, east, west)
+//
+//	DDD is a number of degrees
+//	MM is a number of minutes
+//	SS is a number of seconds
+//	mm is a fraction of minutes
+//	k is a single character N, S, E, or W indicating a direction (north, south, east, west)
 type GPSCoord string
 
 func (x GPSCoord) Value() string {

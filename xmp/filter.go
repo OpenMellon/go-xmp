@@ -37,7 +37,7 @@ func ParseFilterStrict(s string) (*Filter, error) {
 	if len(s) == 0 {
 		return f, nil
 	}
-	for _, v := range strings.Split(s, ",") {
+	for v := range strings.SplitSeq(s, ",") {
 		if v == "" {
 			continue
 		}
@@ -80,7 +80,7 @@ func ParseFilter(s string) *Filter {
 	if len(s) == 0 {
 		return f
 	}
-	for _, v := range strings.Split(s, ",") {
+	for v := range strings.SplitSeq(s, ",") {
 		if v == "" {
 			continue
 		}

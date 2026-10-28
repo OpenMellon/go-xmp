@@ -27,9 +27,7 @@ import (
 	"github.com/OpenMellon/go-xmp/xmp"
 )
 
-var (
-	NsPm = xmp.NewNamespace("photomechanic", "http://ns.camerabits.com/photomechanic/1.0/", NewModel)
-)
+var NsPm = xmp.NewNamespace("photomechanic", "http://ns.camerabits.com/photomechanic/1.0/", NewModel)
 
 func init() {
 	xmp.Register(NsPm, xmp.ImageMetadata)

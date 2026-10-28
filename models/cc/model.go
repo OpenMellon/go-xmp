@@ -23,12 +23,11 @@ package cc
 
 import (
 	"fmt"
+
 	"github.com/OpenMellon/go-xmp/xmp"
 )
 
-var (
-	NsCC = xmp.NewNamespace("cc", "http://creativecommons.org/ns#", NewModel)
-)
+var NsCC = xmp.NewNamespace("cc", "http://creativecommons.org/ns#", NewModel)
 
 func init() {
 	xmp.Register(NsCC, xmp.RightsMetadata)

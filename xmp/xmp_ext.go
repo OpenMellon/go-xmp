@@ -103,13 +103,14 @@ func (x *Extension) UnmarshalXMP(d *Decoder, src *Node, m Model) error {
 // used for xmpMM:Pantry bags
 //
 // <xmpMM:Pantry>
-//   <rdf:Bag>
-//     <rdf:li>
-//       <rdf:Description>...</rdf:Description>
-//     </rdf:li>
-//   </rdf:Bag>
-// </xmpMM:Pantry>
 //
+//	<rdf:Bag>
+//	  <rdf:li>
+//	    <rdf:Description>...</rdf:Description>
+//	  </rdf:li>
+//	</rdf:Bag>
+//
+// </xmpMM:Pantry>
 type ExtensionArray []*Extension
 
 func (x ExtensionArray) Typ() ArrayType {
@@ -142,23 +143,24 @@ func (x *ExtensionArray) UnmarshalXMP(d *Decoder, node *Node, m Model) error {
 // xmp:<rdf:Bag> / json:[]
 //
 // <iXML:extension>
-//    <PRIVATE-NAME-1 rdf:parseType="Resource">
-//        <PRIVATE-FIELD/>
-//    </PRIVATE-NAME-1>
-//    <PRIVATE-NAME-2 rdf:parseType="Resource">
-//        <PRIVATE-FIELD/>
-//    </PRIVATE-NAME-2>
+//
+//	<PRIVATE-NAME-1 rdf:parseType="Resource">
+//	    <PRIVATE-FIELD/>
+//	</PRIVATE-NAME-1>
+//	<PRIVATE-NAME-2 rdf:parseType="Resource">
+//	    <PRIVATE-FIELD/>
+//	</PRIVATE-NAME-2>
+//
 // </iXML:extension>
 //
-// iXML:extension: {
-//		"PRIVATE-NAME-1": {
-//	        "PRIVATE-FIELD": "",
-//      },
-//		"PRIVATE-NAME-2": {
-//	        "PRIVATE-FIELD": "",
-//      }
-// }
-//
+//	iXML:extension: {
+//			"PRIVATE-NAME-1": {
+//		        "PRIVATE-FIELD": "",
+//	     },
+//			"PRIVATE-NAME-2": {
+//		        "PRIVATE-FIELD": "",
+//	     }
+//	}
 type NamedExtensionArray []*Extension
 
 func (x NamedExtensionArray) Typ() ArrayType {

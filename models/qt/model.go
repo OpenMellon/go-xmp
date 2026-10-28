@@ -59,9 +59,7 @@ import (
 	"github.com/OpenMellon/go-xmp/xmp"
 )
 
-var (
-	NsQuicktime = xmp.NewNamespace("qt", "http://ns.apple.com/quicktime/1.0/", NewModel)
-)
+var NsQuicktime = xmp.NewNamespace("qt", "http://ns.apple.com/quicktime/1.0/", NewModel)
 
 func init() {
 	xmp.Register(NsQuicktime, xmp.MovieMetadata, xmp.CameraMetadata)

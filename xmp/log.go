@@ -20,20 +20,22 @@ import (
 	"strings"
 )
 
-type LogLevelType int
-type LogType struct {
-	bool
-}
+type (
+	LogLevelType int
+	LogType      struct {
+		bool
+	}
+)
 
 type Logger interface {
-	Error(v ...interface{})
-	Errorf(s string, v ...interface{})
-	Warn(v ...interface{})
-	Warnf(s string, v ...interface{})
-	Info(v ...interface{})
-	Infof(s string, v ...interface{})
-	Debug(v ...interface{})
-	Debugf(s string, v ...interface{})
+	Error(v ...any)
+	Errorf(s string, v ...any)
+	Warn(v ...any)
+	Warnf(s string, v ...any)
+	Info(v ...any)
+	Infof(s string, v ...any)
+	Debug(v ...any)
+	Debugf(s string, v ...any)
 }
 
 const (
@@ -78,76 +80,76 @@ func SetLogger(v Logger) {
 }
 
 // internal
-func defaultLogger(format string, args ...interface{}) {
+func defaultLogger(format string, args ...any) {
 	if !strings.HasSuffix(format, "\n") {
 		format = format + "\n"
 	}
 	log.Printf(format, args...)
 }
 
-func output(lvl LogLevelType, v ...interface{}) {
-	m := append(make([]interface{}, 0, len(v)+1), lvl.Prefix())
+func output(lvl LogLevelType, v ...any) {
+	m := append(make([]any, 0, len(v)+1), lvl.Prefix())
 	m = append(m, v...)
 	defaultLogger("%s", m...)
 }
 
-func outputf(lvl LogLevelType, s string, v ...interface{}) {
+func outputf(lvl LogLevelType, s string, v ...any) {
 	s = strings.Join([]string{"%s ", s}, "")
-	m := append(make([]interface{}, 0, len(v)+1), lvl.Prefix())
+	m := append(make([]any, 0, len(v)+1), lvl.Prefix())
 	m = append(m, v...)
 	defaultLogger(s, m...)
 }
 
-func (x LogType) Error(v ...interface{}) {
+func (x LogType) Error(v ...any) {
 	if logLevel > LogLevelError {
 		return
 	}
 	output(LogLevelError, v...)
 }
 
-func (x LogType) Errorf(s string, v ...interface{}) {
+func (x LogType) Errorf(s string, v ...any) {
 	if logLevel > LogLevelError {
 		return
 	}
 	outputf(LogLevelError, s, v...)
 }
 
-func (x LogType) Warn(v ...interface{}) {
+func (x LogType) Warn(v ...any) {
 	if logLevel > LogLevelWarning {
 		return
 	}
 	output(LogLevelWarning, v...)
 }
 
-func (x LogType) Warnf(s string, v ...interface{}) {
+func (x LogType) Warnf(s string, v ...any) {
 	if logLevel > LogLevelWarning {
 		return
 	}
 	outputf(LogLevelWarning, s, v...)
 }
 
-func (x LogType) Info(v ...interface{}) {
+func (x LogType) Info(v ...any) {
 	if logLevel > LogLevelInfo {
 		return
 	}
 	output(LogLevelInfo, v...)
 }
 
-func (x LogType) Infof(s string, v ...interface{}) {
+func (x LogType) Infof(s string, v ...any) {
 	if logLevel > LogLevelInfo {
 		return
 	}
 	outputf(LogLevelInfo, s, v...)
 }
 
-func (x LogType) Debug(v ...interface{}) {
+func (x LogType) Debug(v ...any) {
 	if logLevel > LogLevelDebug {
 		return
 	}
 	output(LogLevelDebug, v...)
 }
 
-func (x LogType) Debugf(s string, v ...interface{}) {
+func (x LogType) Debugf(s string, v ...any) {
 	if logLevel > LogLevelDebug {
 		return
 	}

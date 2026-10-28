@@ -16,6 +16,7 @@ package ixml
 
 import (
 	"fmt"
+	"slices"
 	"strings"
 )
 
@@ -35,12 +36,7 @@ const (
 type TakeTypeList []TakeType
 
 func (x TakeTypeList) Contains(t TakeType) bool {
-	for _, v := range x {
-		if v == t {
-			return true
-		}
-	}
-	return false
+	return slices.Contains(x, t)
 }
 
 func (x *TakeTypeList) Add(t TakeType) {
@@ -117,7 +113,6 @@ func (x *TakeTypeList) UnmarshalText(data []byte) error {
 }
 
 // Location Type
-//
 type LocationType string
 
 const (
@@ -182,16 +177,10 @@ func (x *LocationTypeList) UnmarshalText(data []byte) error {
 }
 
 func (x LocationTypeList) Contains(t LocationType) bool {
-	for _, v := range x {
-		if v == t {
-			return true
-		}
-	}
-	return false
+	return slices.Contains(x, t)
 }
 
 // Location Time
-//
 type LocationTime string
 
 const (
@@ -274,12 +263,7 @@ func (x *LocationTimeList) UnmarshalText(data []byte) error {
 }
 
 func (x LocationTimeList) Contains(t LocationTime) bool {
-	for _, v := range x {
-		if v == t {
-			return true
-		}
-	}
-	return false
+	return slices.Contains(x, t)
 }
 
 type FunctionType string
@@ -374,12 +358,7 @@ var (
 )
 
 func (x FunctionSet) Contains(t FunctionType) bool {
-	for _, v := range x {
-		if v == t {
-			return true
-		}
-	}
-	return false
+	return slices.Contains(x, t)
 }
 
 func (x *FunctionSet) Add(t FunctionType) {

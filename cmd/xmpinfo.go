@@ -25,7 +25,7 @@ import (
 
 	_ "github.com/OpenMellon/go-xmp/models"
 	"github.com/OpenMellon/go-xmp/models/dc"
-	"github.com/OpenMellon/go-xmp/models/xmp_base"
+	xmpbase "github.com/OpenMellon/go-xmp/models/xmp_base"
 	"github.com/OpenMellon/go-xmp/xmp"
 )
 
@@ -49,7 +49,7 @@ func init() {
 	flag.BoolVar(&fall, "all", false, "ouput all embedded xmp documents")
 }
 
-func fail(v interface{}) {
+func fail(v any) {
 	fmt.Printf("Error: %s in file %s\n", v, flag.Arg(0))
 	os.Exit(1)
 }
